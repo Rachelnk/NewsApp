@@ -1,3 +1,4 @@
+{% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +10,51 @@
         {% endif %}
     </head>
     <body>
-      <h1>Testing Movie app</h1>
+      <!-- general -->
+      <h3>
+        General
+      </h3>
+      <ul>
+        {{macro.displayNewsList(general)}}
+
+      </ul>
+      <!-- business -->
+      <h3>
+        Business
+      </h3>
+      <ul>
+        {{macro.displayNewsList(business)}}
+
+      </ul>
+      <!-- sports -->
+      <h3>
+        Sports
+      </h3>
+      <ul>
+        {{macro.displayNewsList(sports)}}
+      </ul>
+      <!-- entertainment -->
+      <h3>
+        Entertainment
+      </h3>
+      <ul>
+        {{macro.displayNewsList(entertainment)}}
+      </ul>
+
+      <!-- science -->
+      <h3>
+        science
+      </h3>
+      <ul>
+        {{macro.displayNewsList(science)}}
+      </ul>
+      <!-- health -->
+      <h3>
+        Health
+      </h3>
+      <ul>
+        {{macro.displayNewsList(health)}}
+      </ul>
 
     </body>
 </html>
