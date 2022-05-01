@@ -4,10 +4,8 @@ from app import app
 # Views
 @app.route('/')
 def index():
+    title = "Welcome to NewsApp"
 
-    '''
-    View root page function that returns the index page and its data
-    '''
     return render_template('index.html')
 @app.route('/news/<news_id>')
 def movie(news_id):
