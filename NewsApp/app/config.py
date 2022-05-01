@@ -5,7 +5,7 @@ class Config:
     '''
     General configuration parent class
     '''
-    NEWS_API_KEY ='https://newsapi.org/v2/top-headlines/sources?apiKey={}'
+    NEWS_API_KEY ='https://newsapi.org/v2/top-headlines/sources/{}?apiKey={}'
 
 class ProdConfig(Config):
     '''
