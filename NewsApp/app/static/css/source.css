@@ -5,3 +5,17 @@ hr{
 	border-width: 2px;
 	border-color: lightgrey
 }
+/*FOOTER STYLES*/
+footer{
+	margin-top: 50px;
+	background-color: lightgrey;
+	width:100%;
+	margin-bottom: 0px;
+	bottom: 0%
+}
+footer h4{
+	text-align: center;
+	font-weight: bold;
+	padding: 50px
+
+}
