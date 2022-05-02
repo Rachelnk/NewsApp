@@ -81,8 +81,8 @@ def process_articles(articles_results):
         return articles_list
 
 #search function to search for articles according to the source name
-def search_movie(source_name):
-    search_news_url = source_base_url.format(category)
+def search_source(source_name):
+    search_news_url = source_base_url.format(source_name)
     
     with urllib.request.urlopen(search_news_url) as url:
         search_news_data = url.read()

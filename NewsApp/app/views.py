@@ -1,6 +1,6 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from app import app
-from app.request import get_news, get_articles, search_movie
+from app.request import get_news, get_articles, search_source
 
 # Views
 @app.route('/')
@@ -14,8 +14,11 @@ def index():
     science_news = get_news ('science')
     
     title = "Home- Get your latest news higlights from NewsApp"
-
-    return render_template('index.html', entertainment = entertainment, business = business_news, general = general_news, science = science_news, technology = technology_news, sports = sports_news)
+    search_source = request.args.get('news_query')
+    if search_source:
+        return redirect(url_for('search', name = search_source))
+    else:
+     return render_template('index.html', entertainment = entertainment, business = business_news, general = general_news, science = science_news, technology = technology_news, sports = sports_news)
 @app.route('/source/<id>')
 def source(id):
   articles = get_articles(id)
@@ -25,13 +28,13 @@ def source(id):
   return render_template('source.html',title=title,id=source_id, articles=articles)
   # create search view function to display our search items.
 
-@app.route('/search/<source_name>')
-def search(source_name):
+@app.route('/search/<name>')
+def search(name):
     '''
     View function to display the search results
     '''
-    source_name_list = source_name.split(" ")
+    source_name_list = name.split(" ")
     source_name_format = "+".join(source_name_list)
-    searched_sources = search_movie(source_name_format)
-    title = f'search results for {source_name}'
+    searched_sources = search_source(source_name_format)
+    title = f'search results for {name}'
     return render_template('search.html',sources = searched_sources)
