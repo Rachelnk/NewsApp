@@ -1,6 +1,10 @@
 .articles {
   display: block;
 }
+.articles h3{
+	text-align: center;
+ font-family: 'Black Ops One', cursive;
+}
 hr{
 	border-width: 2px;
 	border-color: lightgrey
