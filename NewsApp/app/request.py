@@ -79,6 +79,24 @@ def process_articles(articles_results):
                         article_object = Article(author,title,description,url,image,date)
                         articles_list.append(article_object)
         return articles_list
+
+#search function to search for articles according to the source name
+def search_movie(source_name):
+    search_news_url = source_base_url.format(category)
+    
+    with urllib.request.urlopen(search_news_url) as url:
+        search_news_data = url.read()
+        search_news_response = json.loads(search_news_data)
+
+        search_news_results = None
+
+        if search_news_response['sources']:
+            search_news_list = search_news_response['sources']
+            search_news_results = process_results(search_news_list)
+
+
+    return search_news_results
+
 	      
         
 

@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from app.request import get_news, get_articles
+from app.request import get_news, get_articles, search_movie
 
 # Views
 @app.route('/')
@@ -23,3 +23,15 @@ def source(id):
   title= f'{source_id} - Top Articles'
    
   return render_template('source.html',title=title,id=source_id, articles=articles)
+  # create search view function to display our search items.
+
+@app.route('/search/<source_name>')
+def search(source_name):
+    '''
+    View function to display the search results
+    '''
+    source_name_list = source_name.split(" ")
+    source_name_format = "+".join(source_name_list)
+    searched_sources = search_movie(source_name_format)
+    title = f'search results for {source_name}'
+    return render_template('search.html',movies = searched_sources)
