@@ -34,4 +34,4 @@ def search(source_name):
     source_name_format = "+".join(source_name_list)
     searched_sources = search_movie(source_name_format)
     title = f'search results for {source_name}'
-    return render_template('search.html',movies = searched_sources)
+    return render_template('search.html',sources = searched_sources)
