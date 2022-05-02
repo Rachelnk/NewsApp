@@ -1,0 +1,7 @@
+.articles {
+  display: block;
+}
+hr{
+	border-width: 2px;
+	border-color: lightgrey
+}
