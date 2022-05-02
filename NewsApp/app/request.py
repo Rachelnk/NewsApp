@@ -48,8 +48,8 @@ def process_results(news_results):
     
   return news_list
 
-def get_articles(source):
-    get_articles_url = articles_base_url.format(source,api_key)
+def get_articles(news):
+    get_articles_url = articles_base_url.format(news,api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -58,7 +58,7 @@ def get_articles(source):
         articles_results = None
         if get_articles_response['articles']:
             articles_results_list = get_articles_response['articles']
-            articles_results_list = process_articles(articles_results_list)
+            articles_results = process_articles(articles_results_list)
 			      
 
     return articles_results
