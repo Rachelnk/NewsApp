@@ -8,13 +8,9 @@ class News:
         self.description = description
         self.sourceurl = sourceurl
         self.category = category
-        self.country = country 
-        
+        self.country = country      
 
       
-
-
-
 class Article:
 	'''
 	Article Class to define Article Objects
