@@ -16,8 +16,10 @@ def index():
     title = "Home- Get your latest news higlights from NewsApp"
 
     return render_template('index.html', entertainment = entertainment, business = business_news, general = general_news, science = science_news, technology = technology_news, sports = sports_news)
-@app.route('/news/<news_id>')
-def movie(news_id):
-
-    
-    return render_template('news.html',id = news_id)
+@app.route('/source/<int:id>')
+def source(id):
+  articles = get_articles(id)
+  source_id = id.upper()
+  title= f'{source_id} - Top Articles'
+   
+  return render_template('source.html',title=title,id=source_id, articles=articles)
