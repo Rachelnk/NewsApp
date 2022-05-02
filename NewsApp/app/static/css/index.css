@@ -8,6 +8,10 @@
 
 
 /*SOURCE STYLES*/
+h3{
+  font-family: 'Poppins', sans-serif;
+
+}
 .source_section{
 	display: block;
 }
