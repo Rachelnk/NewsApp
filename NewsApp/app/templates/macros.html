@@ -1,5 +1,5 @@
-{% macro displayNewsList(news_list) %}
-    {% for news in news_list %}
+{% macro displayNewsList(news_results) %}
+    {% for news in news_results%}
         <li>{{news.name}}</li>
-    {%% endfor }
+    {% endfor%}
 {% endmacro %}

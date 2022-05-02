@@ -10,7 +10,7 @@ def index():
     business_news = get_news('business')
     technology_news = get_news('technology')
     entertainment = get_news('entertainment')
-    health_news = get_news('health')
+    # health_news = get_news('health')
     science_news = get_news ('science')
     
     title = "Home- Get your latest news higlights from NewsApp"

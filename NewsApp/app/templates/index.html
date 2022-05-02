@@ -4,7 +4,7 @@
    <!-- content block -->
     {% block content %}
     <body>
-      general
+      
       <h3>
         General
       </h3>
@@ -37,17 +37,24 @@
 
       <!-- science -->
       <h3>
-        science
+        Science
       </h3>
       <ul>
         {{macro.displayNewsList(science)}}
       </ul>
       <!-- health -->
-      <h3>
+      <!-- <h3>
         Health
       </h3>
       <ul>
         {{macro.displayNewsList(health)}}
+      </ul> -->
+       <!-- Technology -->
+       <h3>
+        Technology
+      </h3>
+      <ul>
+        {{macro.displayNewsList(technnology)}}
       </ul>
       {% endblock%}
 

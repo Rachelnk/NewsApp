@@ -1,3 +1,4 @@
+from unicodedata import category
 from app import app
 import urllib.request, json
 from .models import news, articles
@@ -14,7 +15,7 @@ def get_news(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = source_base_url.format(category,api_key)
+    get_news_url = source_base_url.format(category)
     # get_news_url = 'https://newsapi.org/v2/sources?apiKey=e9bccdcb8e164e9d8e5420ea88db15c5'
 
     with urllib.request.urlopen(get_news_url) as url:
@@ -23,31 +24,32 @@ def get_news(category):
 
         news_results = None
 
-        if get_news_response['results']:
-            news_results_list = get_news_response['results']
+        if get_news_response['sources']:
+            news_results_list = get_news_response['sources']
             news_results = process_results(news_results_list)
 
 
     return news_results
-def process_results(news_list):
+def process_results(news_results):
   '''
   Function  that processes the news result and transform them to a list of Objects
   '''
-  news_results = []
-  for news_item in news_list:
-    id =news_item.get(id)
-    name =news_item.get(name)
-    description =news_item.get(description)
-    url =news_item.get(url)
-    language =news_item.get(language)
-    country =news_item.get(country)
+  news_list = []
+  for news_item in news_results:
+    id =news_item.get('id')
+    name =news_item.get('name')
+    description =news_item.get('description')
+    url =news_item.get('url')
+    category = news_item.get('category')
+    country =news_item.get('country')
 
-    source_object = News(id, name, description, url,language, country)
+    source_object = News(id, name, description, url, category, country)
+    news_list.append(source_object)
     
-  return news_results
+  return news_list
 
 def get_articles(source):
-    get_articles_url = articles_base_url.format(id,api_key)
+    get_articles_url = articles_base_url.format(source,api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
