@@ -22,9 +22,9 @@
 * `cd NewsApp`
 * 
 ### Creating virtual environment
-`python3.6 -m venv --without-pip virtual`
-`source virtual/bin/env`
-`curl https://bootstrap.pypa.io/get-pip.py | python `
+* `python3.6 -m venv --without-pip virtual`
+* `source virtual/bin/env`
+* `curl https://bootstrap.pypa.io/get-pip.py | python `
 
 ### Running the application
 * $ chmod +x start.sh
