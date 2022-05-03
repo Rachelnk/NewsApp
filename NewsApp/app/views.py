@@ -1,9 +1,11 @@
 from flask import render_template, request, redirect, url_for
-from app import app
+# from app import app
+from . import main
+
 from app.request import get_news, get_articles, search_source
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
     general_news = get_news('general')
     sports_news = get_news('sports')
@@ -19,7 +21,7 @@ def index():
         return redirect(url_for('search', name = search_source))
     else:
      return render_template('index.html', entertainment = entertainment, business = business_news, general = general_news, science = science_news, technology = technology_news, sports = sports_news)
-@app.route('/source/<id>')
+@main.route('/source/<id>')
 def source(id):
   articles = get_articles(id)
   source_id = id.upper()
@@ -28,7 +30,7 @@ def source(id):
   return render_template('source.html',title=title,id=source_id, articles=articles)
   # create search view function to display our search items.
 
-@app.route('/search/<name>')
+@main.route('/search/<name>')
 def search(name):
     '''
     View function to display the search results
