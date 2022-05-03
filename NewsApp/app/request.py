@@ -1,9 +1,9 @@
-from unicodedata import category
-from app import app
+# from unicodedata import category
+# from app import app
 import urllib.request, json
-from .models import news, articles
-News = news.News
-Article = articles.Article
+from .models import News, Article
+# News = news.News
+# Article = articles.Article
 #  getting api key
 api_key = None
 # get base url
@@ -55,8 +55,8 @@ def process_results(news_results):
     
   return news_list
 
-def get_articles(news):
-    get_articles_url = articles_base_url.format(news,api_key)
+def get_articles(source):
+    get_articles_url = articles_base_url.format(source,api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -88,21 +88,21 @@ def process_articles(articles_results):
         return articles_list
 
 #search function to search for articles according to the source name
-def search_source(source_name):
-    search_news_url = source_base_url.format(source_name)
+# def search_source(source_name):
+#     search_news_url = source_base_url.format(source_name)
     
-    with urllib.request.urlopen(search_news_url) as url:
-        search_news_data = url.read()
-        search_news_response = json.loads(search_news_data)
+#     with urllib.request.urlopen(search_news_url) as url:
+#         search_news_data = url.read()
+#         search_news_response = json.loads(search_news_data)
 
-        search_news_results = None
+#         search_news_results = None
 
-        if search_news_response['sources']:
-            search_news_list = search_news_response['sources']
-            search_news_results = process_results(search_news_list)
+#         if search_news_response['sources']:
+#             search_news_list = search_news_response['sources']
+#             search_news_results = process_results(search_news_list)
 
 
-    return search_news_results
+#     return search_news_results
 
 	      
         
