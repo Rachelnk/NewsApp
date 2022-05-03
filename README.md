@@ -2,7 +2,7 @@
 
 
 ## Description
-##### This is a web application that displays different categories of list of news sources e.g. CNN, Indpendent. The various sources contain articles that are frequently updated. Upon clicking on a news article the user is redirected to the entire news article itself.
+##### This is a web application that displays different categories i.e. business, technology of news sources e.g. CNN, Indpendent. The various sources contain articles that are frequently updated, date and time the article was posted, author, an image and title . Upon clicking on a news article the user is redirected to the entire news article itself.
 
 ## Authors
 #### Rachel Kiarie
